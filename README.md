@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# VoiceHireAI
 
-## Getting Started
+A Next.js application that provides AI-powered voice interview assistant using supabase for database, Vapi for voice calls, and Google Gemini for AI responses.
 
-First, run the development server:
+## Environment Variables Required
+
+Create a `.env.local` file in the root directory with the following variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Supabase Authentication (Required)
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+# Google AI (Gemini) API Key (Required for generating Interview Questions and Candidate Feedback)
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Paypal Client ID (Required for payment)
+NEXT_PUBLIC_PAYPAL_CLIENT_ID=
+
+# Vapi API Key (Required for voice functionality)
+NEXT_PUBLIC_VAPI_API_KEY=your_vapi_key_here
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting API Keys
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Paypal
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Go to [Paypal Developer Dashboard](https://developer.paypal.com/home/)
+2. Create a API Key
 
-## Learn More
+### Google AI (Gemini)
 
-To learn more about Next.js, take a look at the following resources:
+1. Go to [Google AI Studio](https://aistudio.google.com/)
+2. Create an API key
+3. Enable Gemini API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Vapi Voice
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Go to [Vapi Dashboard](https://dashboard.vapi.ai/)
+2. Create an account and get your API key
 
-## Deploy on Vercel
+### Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Use Neon, Supabase, or any PostgreSQL database
+2. Get your connection string
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Troubleshooting
+
+### 500 Internal Server Error
+
+- Check if all environment variables are set
+- Verify database connection
+
+### Axios Error
+
+- Ensure API endpoints are accessible
+- Check authentication status
+- Verify request payload format
+
+### Vapi Call Issues
+
+- Verify VAPI_API_KEY is set
+- Check Vapi account status
+- Ensure proper voice configuration
+
+## Features
+
+- User authentication with Supabase and OAuth
+- AI Interview Assistant voice conversations
+- After Interview Candidate Performance report generation
+- Keeping Track of previously created interviews
+- Display how many Candidates have taken each Interview and view report of their performance.
+
+## Tech Stack
+
+- Javascript
+- Next.js 15
+- Vapi Voice API
+- Google Gemini AI
+- Supabase Database
+- Tailwind CSS
