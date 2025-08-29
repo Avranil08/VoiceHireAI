@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useUser } from './provider';
-// import HeroVideoDialog from '@/components/magicui/hero-video-dialog';
+
 
 export default function Home() {
   const { user } = useUser();
